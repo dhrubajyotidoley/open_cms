@@ -1,0 +1,104 @@
+body {
+	padding-bottom: 0;
+	overflow-x: hidden;
+}
+.navbar-header a {
+	text-decoration: none;
+	color: white;
+}
+.navbar-header a:hover {
+	text-decoration: none;
+	color: white;
+}
+.navbar-right {
+	font-size: 12px;
+}
+
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: #333333;
+    border: 0;
+}
+.navbar-collapse ul li a {
+	color: #FFFFFF;
+}
+
+.navbar-collapse ul li a:hover {
+	color: white;
+	background-color: #ed1c24;
+}
+
+.navbar-collapse ul li a:active a::after {
+	color: black;
+}
+
+.navbar-custom .navbar-nav .open .dropdown-menu>li>a,.navbar-custom .navbar-nav .open .dropdown-menu {
+    background-color: #333333;
+    color:#ffffff;
+  }
+
+.dropdown-menu>li>a:hover {
+    background-color: #333333;
+    color:#ffffff;
+}
+
+.dropdown-menu{
+min-width: 515px;
+text-align: center;
+}
+
+.dropdown-menu li {
+	margin: 5px;
+}
+
+.navbar-right li a:after a:active{
+	background-color: #333333;
+   color:#ffffff
+}
+
+.nav .open > a, .nav .open a:focus, .nav .open > a:hover {
+	background-color: #333333;
+}
+.nav > li > a:focus, .nav > li > a:hover {
+	background-color: #333333;
+}
+
+.dropdown ul li a {
+	text-decoration: none;
+}
+
+.dropdown ul li a:hover {
+	text-decoration: underline;
+	color: #ed1c24;
+	background-color: #333333;
+}
+
+
+.footer {
+	background-color: #cccccc; bottom: 0; 
+	padding: 50px 0;
+	margin-top: 100px;
+}
+.redbar {
+	height: 5px; width: 20px; background-color: #ed1c24; margin-bottom: -20px;
+}
+
+
+img.grayscale {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+}
+
+img.grayscale:hover {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+}
+
+.blogimg {
+	width: 350px; height: 100px; background-color: #cccccc; margin-bottom: 10px;
+	border-radius: 5px;
+}
+.blogimg img {
+	border-radius: 5px;
+}
