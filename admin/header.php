@@ -15,7 +15,7 @@ connectDB();
     <meta name="description" content="">
     <meta name="author" content="OpenNirvana" >
 
-    <title>Noloose - <?php echo $name; ?></title>
+    <title>Open CMS - <?php echo $name; ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@ connectDB();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Noloose Admin</a>
+                <a class="navbar-brand" href="dashboard.php">Open CMS Admin</a>
             </div>
             <!-- Top Menu Items -->
             <!-- ul class="nav navbar-right top-nav">
