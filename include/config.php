@@ -3,13 +3,13 @@
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'open123');
+define('DB_PASSWORD', 'PASSWORD');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
 
 /** MySQL Database Name */
-define('DB_NAME', 'noloose');
+define('DB_NAME', 'DBNAME');
 
 define('TITLE', 'emailer :: Home');
 
