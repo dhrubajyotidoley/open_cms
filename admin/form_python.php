@@ -71,4 +71,5 @@ echo "</pre><script>window.scrollTo(0,99999);</script>";
 echo "<br /><br />Script finalizado<br /><br />";
 echo "<h1>Your form has been generated</h1>";
 
+echo "<script type='text/javascript'>window.location = \"dashboard.php\";</script>";
 ?>
