@@ -37,17 +37,26 @@ password: admin
 Step 5: Add database credential to "admin/makehtml.py"
 Line No :- 287
 db = MySQLdb.connect(host="localhost", 
-                     user="opennirv_php", 
-                      passwd="}wWkNzI6A-N7", 
-                      db="opennirv_rma")
+                     user="username", 
+                      passwd="password", 
+                      db="dbname")
 
-Step 6: Change the Path here ("f" this is the folder where all files are created so it write permission 777)
+
+Step 6: Add database credential to "admin/testme.py"
+Line No :- 154
+dbnew = MySQLdb.connect(host="localhost", 
+                     user="username", 
+                      passwd="password", 
+                      db="dbname")
+
+Step 7: Create a Folder "f" on the server under the "admin" directory
+change the permission to 777
+
+Step 8: Change the Path here ("f" this is the folder where all files are created so it write permission 777)
 "admin/makehtml.py"
-create_file = '/home6/opennirv/public_html/beta/form_builder/admin/f/'
-copy_file = '/home6/opennirv/public_html/beta/form_builder/admin/'
+create_file = '/PATH_TO_ADMIN_FOLDER/admin/f/'
+copy_file = '/PATH_TO_ADMIN_FOLDER/admin/'
 
-Step 7: Change the Path "admin/form_python.php"
+Step 9: Change the Path "admin/form_python.php"
 Line no :- 43
-$command = "/home6/opennirv/python27/Python-2.7.4/python /home6/opennirv/public_html/beta/form_builder/admin/testme.py";
-
-
+$command = "python /PATH_TO_ADMIN_FOLDER/admin/testme.py";
