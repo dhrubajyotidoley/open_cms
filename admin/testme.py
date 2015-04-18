@@ -150,26 +150,26 @@ while da < datalen:
         data.append(array[da][2])
     da+=1
 
-'''
+
 dbnew = MySQLdb.connect(host="localhost", 
-                     user="opennirv_php", 
-                      passwd="}wWkNzI6A-N7", 
-                      db="opennirv_rma")
-'''
+                     user="username", 
+                      passwd="password", 
+                      db="dbname")
+
 
 html = makehtml.Body(data, html)
 makehtml.CreateHTML(name, html)
 makehtml.CreateTable(name, table)
 makehtml.CreateHTMLlist(name)
 
-'''
+
 x = dbnew.cursor()
-sql = "INSERT INTO rma_forms(`form`) VALUES('%s');"%(name.lower())
+sql = "INSERT INTO menu(`name`) VALUES('%s');"%(name.lower()+'_list.php')
 print sql
 x.execute(sql)
 dbnew.commit()
 x.close()
-'''
+
 
 #print html
 print "HTML Form Created"
