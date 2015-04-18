@@ -2,8 +2,6 @@
 
 import MySQLdb
 
-create_file = '/home6/opennirv/public_html/beta/form_builder/admin/f/'
-copy_file = '/home6/opennirv/public_html/beta/form_builder/admin/'
 
 def Body(*arg):
     name = arg[0][0].lower()
@@ -40,9 +38,6 @@ def Body(*arg):
 <?php
 include("header.php");
 
-$doc_no = $_REQUEST['doc_no'];
-$fir = $_REQUEST['fir'];
-$pcode = $_REQUEST['pcode'];
 $id=$_REQUEST['id'];
 
 if($id!="")
@@ -56,24 +51,18 @@ if(isset($_POST['submit']))
 {
   
   '''+post+'''
-
-$fir = $_POST['fir'];
-$doc_no = $_POST['doc_no'];
-$pcode = $_POST['pcode'];
    
   $f1=isDuplicate($id,"id","'''+name+'''","");
   
      if(!$f1)
 		{
-				executeQuery("insert into '''+name+''' ('''+insert+''',`fir`,`doc_no`,`pcode`) values ('''+values+''','$fir','$doc_no','$pcode')");
-                                $id_appl = mysql_insert_id();
-                                executeQuery("insert into `rma_categories` (`form`,`fir`,`form_id`) values ('''+nameplease+''','$fir','$id_appl')");
-				echo "<script type='text/javascript'>window.location = '../rma/thankyou.html';</script>";
+				executeQuery("insert into '''+name+''' ('''+insert+''') values ('''+values+''')");
+				echo '<script type="text/javascript">window.location = "'''+name+'_list.php'+'''";</script>';
 		}
      else 
 		{
 				executeQuery("update '''+name+''' set '''+update+''' where id=$id");
-				echo "<script type='text/javascript'>window.location = '../rma/thankyou.html';</script>";
+				echo '<script type="text/javascript">window.location = "'''+name+'_list.php'+'''";</script>';
 		}
 }
 ?>
@@ -85,9 +74,6 @@ $pcode = $_POST['pcode'];
                     <div class="col-lg-10">
 
                         <form name="form" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onSubmit="return submitForm();">
-<span class="title-innerh">FIR number</span>: <?php echo $fir;?><br> 	
-<span class="title-innerh">Project Code</span>: <?php echo $pcode;?><br>
-<span class="title-innerh">Docket Number</span>: <?php echo $doc_no;?><br> 
 <br>
 '''+t+'''
     <center>
@@ -288,15 +274,19 @@ def CreateTable(name, table):
 );'''
     print sql
     db = MySQLdb.connect(host="localhost", 
-                     user="opennirv_php", 
-                      passwd="}wWkNzI6A-N7", 
-                      db="opennirv_rma")
+                     user="username", 
+                      passwd="password", 
+                      db="dbname")
     pro = db.cursor()
     pro.execute(sql)
     db.commit()
     db.close()
 
 def CreateHTML(name, html):
+    global create_file
+    global copy_file
+    create_file = '/PATH_TO_ADMIN_FOLDER/admin/f/'
+    copy_file = '/PATH_TO_ADMIN_FOLDER/admin/'
     f = open(create_file+name.lower()+".php", "w")
     f.write(html)
     f.close()
@@ -332,7 +322,7 @@ function del(a)
 
                 <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-10">
                         <h1 class="page-header">
                             '''+name+''' List
                         </h1>
@@ -344,6 +334,9 @@ function del(a)
                                 <i class="fa fa-edit"></i> Forms
                             </li>
                         </ol>
+                    </div>
+                    <div class="col-lg-2">
+                    <div class="btn btn-primary"><a href="'''+name.lower()+'''.php">Add New</a></div>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -448,52 +441,3 @@ include("footer.php");
     f.close()
     import shutil
     shutil.copy2(create_file+name.lower()+'_list.php', copy_file+name.lower()+'_list.php')
-
-'''
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-make changes below
-
-Here are the options to create HTML
-Text_Input('title')
-Static()
-Static_Title(t)
-Upload_File('file')
-Text_Area('desc')
-Check_Box('title','Yes', 'No')
-Check_Box_Inline('title','Yes', 'No')
-Radio_Button('title','Radio1', 'Radio2')
-Radio_Button_Inline('Yes', 'No')
-Select('title', 'Hi','No')
-
-DB Options
-var3(t)
-var1(t)
-txt(t)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-'''
-'''
-
-'''
-'''
-name = 'Product'
-f1 = 'title'
-f2 = 'description'
-f3 = 'specification'
-f4 = 'rent'
-f5 = 'price'
-f6 = 'folder'
-f7 = 'category'
-f8 = 'variant_type'
-f9 = 'variant'
-f10 = 'variable1'
-f11 = 'variable2'
-f12 = 'variable3'
-f = [name, f1, f2]
-html = Body(f,Text_Input(f1),Text_Area(f2),Text_Area(f3),Text_Input(f4),Text_Input(f5),Select(f6,'Hi','No'),Select(f7,'Hi','No'),Select(f8,'Hi','No'))
-table = var3(f1) + txt(f2) + txt(f3) + var3(f4) + var3(f5) + var3(f6) + int1(f7) + int1(f8) + int1(f9) + int1(f10) + int1(f11) + int1(f12)
-
-
-CreateHTML(name, html)
-#CreateHTMLlist(name)
-#CreateTable(db, name, table)
-'''
