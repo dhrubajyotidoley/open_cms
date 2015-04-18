@@ -12,3 +12,12 @@ CREATE TABLE IF NOT EXISTS `users_admin` (
 
 INSERT INTO `users_admin` (`id`, `name`, `user_id`, `password`, `email`, `approval`, `type`) VALUES
 (1, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'info@opennirvana.com', 1, '0');
+
+
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `flag` varchar(300) NOT NULL DEFAULT '0',
+  `active` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+);
